@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File List</title>
+</head>
+<body>
+    <h1>File List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>File Name</th>
+                <th>File Hash</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+            <tr>
+                <td>{{ file.file_name }}</td>
+                <td>{{ file.file_hash }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

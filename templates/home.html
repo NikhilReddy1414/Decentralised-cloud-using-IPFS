@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration and Login</title>
+    <style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientAnimation 10s ease infinite;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+    h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 2.5em;
+    }
+
+    .register-button {
+        background-color: #ff6699;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .login-button {
+        background-color: #3399ff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .register-button:hover,
+    .login-button:hover {
+        opacity: 0.8;
+    }
+</style>
+</head>
+<body>
+    <h1>DECENTRALIZED CLOUD</h1>
+<a href="{% url 'register' %}">
+    <button class="register-button">REGISTER</button>
+</a>
+
+<a href="{% url 'login' %}">
+    <button class="login-button">LOGIN</button>
+</a>
+</body>
+</html>

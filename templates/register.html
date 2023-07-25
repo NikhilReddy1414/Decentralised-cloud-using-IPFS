@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+    <style>
+        body {
+            background-color: #e6ffe6;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 32px;
+        }
+        
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #00ffcc;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #00e6b8;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#registration-form").submit(function(e) {
+                var password = $("#password").val();
+                var confirmPassword = $("#confirm_password").val();
+
+                if (password != confirmPassword) {
+                    e.preventDefault();
+                    alert("Password and Confirm Password do not match.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form id="registration-form" method="POST">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" required>
+        <br><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        <br><br>
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" required>
+        <br><br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>

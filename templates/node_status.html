@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPFS Peer Data</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>IPFS Peer Data</h1>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Peer ID</td>
+            <td>{{ peer_data.ID }}</td>
+        </tr>
+        <tr>
+            <td>Agent Version</td>
+            <td>{{ peer_data.AgentVersion }}</td>
+        </tr>
+        <tr>
+            <td>Protocol Version</td>
+            <td>{{ peer_data.ProtocolVersion }}</td>
+        </tr>
+        <tr>
+            <td>Addresses</td>
+            <td>{{ peer_data.Addresses }}</td>
+        </tr>
+        <!-- Add more fields as needed -->
+    </table>
+    
+</body>
+</html>

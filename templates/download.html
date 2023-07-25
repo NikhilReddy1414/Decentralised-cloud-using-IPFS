@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IPFS File Download</title>
+    <style>
+        /* Additional CSS styles */
+        h2{
+            background-color: rgb(23, 14, 2);
+            background-position: center;
+            color: #ebebeb;
+        }
+        h1{
+            background-color: rgb(23, 14, 2);
+            color: #ebe0e0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .file-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .file-item {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f8f8;
+            transition: background-color 0.3s ease;
+        }
+        
+        .file-item:hover {
+            background-color: #ebebeb;
+        }
+        
+        .file-name {
+            font-weight: bold;
+        }
+        
+        .ipfs-hash {
+            color: #777;
+        }
+        
+        .action-button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IPFS File Download</h1>
+        
+        {% if file_data %}
+            <h2>Uploaded Files:</h2>
+            <ul class="file-list">
+                {% for ipfs_hash, file_name in file_data.items %}
+                    <li class="file-item">
+                        <span class="file-name">File Name: {{ file_name }}</span>
+                        <br>
+
+                        <span class="ipfs-hash">IPFS Hash: {{ ipfs_hash }}</span>
+                        <br>
+                        
+                        <br>
+                        <a href="{% url 'show_text' ipfs_hash=ipfs_hash %}">
+                            <button class="action-button">Show File</button>
+                        </a>
+                        
+                        <a href="{% url 'download' ipfs_hash=ipfs_hash %}">
+                            <button class="action-button">Download File</button>
+                        </a>
+                        
+                        <a href="{% url 'peersStoringFile' ipfs_hash=ipfs_hash %}">
+                            <button class="action-button">Peers Storing File</button>
+                        </a>
+                        
+                        <a href="{% url 'delete_file' ipfs_hash=ipfs_hash %}">
+                            <button class="action-button">Delete File</button>
+                        </a>
+                        
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>No uploaded files found.</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

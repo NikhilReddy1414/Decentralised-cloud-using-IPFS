@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File List</title>
+</head>
+<body>
+    <h1>File List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Password</th>
+                <th>PeerID</th>
+                <th>UC_Tokens</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in Users %}
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.peer_id }}</td>
+                <td>{{ user.uc_tokens }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
